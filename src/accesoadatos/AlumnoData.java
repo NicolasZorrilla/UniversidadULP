@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 public class AlumnoData {
-    
     private Connection conex;
     
     /* Constructor:
