@@ -143,7 +143,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         
-       
+        escritorio.removeAll();
+        escritorio.repaint();
+        Cargadenotas notas = new Cargadenotas();
+        notas.setVisible(true);
+        escritorio.add(notas);
+        escritorio.moveToFront(notas);
+  
         
         
         
