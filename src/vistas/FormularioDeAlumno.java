@@ -224,7 +224,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         
         
 
-       Alumno juan = new Alumno(doc, ap, nom, fecha, es);
+       Alumno juan = new Alumno(1,doc, ap, nom, fecha, es);
        
         
        AlumnoData alum = new AlumnoData();
