@@ -154,26 +154,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         notas.setVisible(true);
         escritorio.add(notas);
         escritorio.moveToFront(notas);
-  
-        
-        
-        
-        
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
     
-        
-        
         escritorio.removeAll();
         escritorio.repaint();
-        AlumnoVista alumvista = new AlumnoVista();
-        alumvista.setVisible(true);
-        escritorio.add(alumvista);
-        escritorio.moveToFront(alumvista);
-  
-        
-        
+        FormularioDeAlumno formdealum = new FormularioDeAlumno();
+        formdealum.setVisible(true);
+        escritorio.add(formdealum);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -184,12 +173,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         mat.setVisible(true);
         escritorio.add(mat);
         escritorio.moveToFront(mat);
-        
-        
-        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        
         escritorio.removeAll();
         escritorio.repaint();
         manejodeinscrip insc = new manejodeinscrip();
@@ -199,17 +186,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-     
-        
-        
+
         escritorio.removeAll();
         escritorio.repaint();
         Alumnospormateria am = new Alumnospormateria();
         am.setVisible(true);
         escritorio.add(am);
         escritorio.moveToFront(am);
-        
-        
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
