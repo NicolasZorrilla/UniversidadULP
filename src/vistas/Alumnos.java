@@ -6,8 +6,10 @@
 package vistas;
 
 import accesoadatos.AlumnoData;
+import entidades.Alumno;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 /**
  *
@@ -207,19 +209,21 @@ public class Alumnos extends javax.swing.JInternalFrame {
 
     private void jguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jguardarActionPerformed
        
-//        int doc =Integer.parseInt(jTextFielddoc.getText());
-//        String ap = jTextFieldap.getText();
-//        String nom = jTextField3nombre1.getText();
-//        boolean es = Boolean.parseBoolean(jRadioButton1estado.getText());
-//        
-//        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-//        
-//        String fecha = sdf.format(jDateChooser1.getCalendar());
-//      
+        int doc =Integer.parseInt(jTextFielddoc.getText());
+        String ap = jTextFieldap.getText();
+        String nom = jTextField3nombre1.getText();
+        boolean es = Boolean.parseBoolean(jRadioButton1estado.getText());
         
-       
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
         
+        LocalDate fecha = LocalDate.parse((jDateChooser1.getCalendar()));
+      
         
+       Alumno juan = new Alumno(doc, ap, nom, fecha, es);
+        
+       AlumnoData alum = new AlumnoData();
+        
+       alum.guardarAlumno(juan);
        
         
         
