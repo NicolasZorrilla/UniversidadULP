@@ -192,15 +192,24 @@ public class InscripcionData {
     public List<Alumno> obtenerAlumnosPorMateria(int idMateria) {
         List<Alumno> alumnos = new ArrayList();
         try {
-            String obtencion = "SELECT idAlumno, dni, apellido, nombre FROM alumno "
+            String obtencion = "SELECT alumno.idAlumno, dni, apellido, nombre FROM alumno "
                              + "JOIN inscripcion ON (inscripcion.idAlumno = alumno.idAlumno) "
                              + "WHERE inscripcion.idMateria = ?";
             PreparedStatement ps = conex.prepareStatement(obtencion);
+            ps.setInt(1, idMateria);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Alumno alumno = new Alumno();
+                alumno.setDni(rs.getInt("dni"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumnos.add(alumno);
+            }
             
+            ps.close();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a las tablas alumno y/o inscripción. " + ex.getMessage());
         }
-        
         return alumnos;
     }
     

@@ -4,12 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/accesoadatos/AlumnoData.java</file>
             <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/universidadulp24/UniversidadULP24.java</file>
             <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/accesoadatos/MateriaData.java</file>
             <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/accesoadatos/InscripcionData.java</file>
 =======
             <file>file:/C:/Users/santi/Documents/GitHub/UniversidadULP24/src/accesoadatos/InscripcionData.java</file>
+>>>>>>> Stashed changes
+=======
+            <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/vistas/Alumnospormateria.java</file>
+            <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/vistas/MenuPrincipal.java</file>
+            <file>file:/home/nicolas/NetBeansProjects/UniversidadULP24/src/vistas/Alumno.java</file>
 >>>>>>> Stashed changes
         </group>
     </open-files>

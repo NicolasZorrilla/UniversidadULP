@@ -167,10 +167,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         escritorio.removeAll();
         escritorio.repaint();
-        Alumnos alum = new Alumnos();
-        alum.setVisible(true);
-        escritorio.add(alum);
-        escritorio.moveToFront(alum);
+        AlumnoVista alumvista = new AlumnoVista();
+        alumvista.setVisible(true);
+        escritorio.add(alumvista);
+        escritorio.moveToFront(alumvista);
   
         
         
