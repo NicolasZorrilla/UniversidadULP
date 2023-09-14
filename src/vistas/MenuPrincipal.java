@@ -169,7 +169,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
         escritorio.removeAll();
         escritorio.repaint();
-        Materia mat = new Materia();
+        materias mat = new materias();
         mat.setVisible(true);
         escritorio.add(mat);
         escritorio.moveToFront(mat);

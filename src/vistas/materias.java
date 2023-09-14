@@ -9,12 +9,12 @@ package vistas;
  *
  * @author santi
  */
-public class Materia extends javax.swing.JInternalFrame {
+public class materias extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Materia
      */
-    public Materia() {
+    public materias() {
         initComponents();
     }
 
