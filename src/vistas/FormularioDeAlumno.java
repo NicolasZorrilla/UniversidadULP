@@ -239,14 +239,14 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            AlumnoData alumnData = new AlumnoData();
-            Alumno alumn = alumnData.buscarAlumnoPorDni(Integer.parseInt(txtDni.getText()));
-            txtApellido.setText(alumn.getApellido());
-            txtNombre.setText(alumn.getNombre());
-            dateFechaNacimiento.setDate(Date.valueOf(alumn.getFechaNacimiento()));
-            checkEstado.setSelected(alumn.isEstado());
+            AlumnoData alumnodata = new AlumnoData();
+            Alumno alumno = alumnodata.buscarAlumnoPorDni(Integer.parseInt(txtDni.getText()));
+            txtApellido.setText(alumno.getApellido());
+            txtNombre.setText(alumno.getNombre());
+            dateFechaNacimiento.setDate(Date.valueOf(alumno.getFechaNacimiento()));
+            checkEstado.setSelected(alumno.isEstado());
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Asi no es.");
+            JOptionPane.showMessageDialog(this, "Debe ingresar el DNI del alumno.");
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 

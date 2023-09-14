@@ -80,7 +80,7 @@ public class AlumnoData {
         Alumno alumno = null;
         try {
             String busqueda = "SELECT idAlumno, dni, apellido, nombre, fechaNacimiento, estado "
-                            + "FROM alumno WHERE dni = ? AND estado = 1";
+                            + "FROM alumno WHERE dni = ?";
             
             PreparedStatement ps = conex.prepareStatement(busqueda);
             ps.setInt(1, dni);
@@ -161,7 +161,7 @@ public class AlumnoData {
     
     public void eliminarAlumno(int id) {
         try {
-            String modificacion = "UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
+            String modificacion = "DELETE FROM alumno WHERE idAlumno = ?";
             
             PreparedStatement ps = conex.prepareStatement(modificacion);
             ps.setInt(1, id);
