@@ -80,6 +80,11 @@ public class materias extends javax.swing.JInternalFrame {
         });
 
         jsalir1.setText("Salir");
+        jsalir1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jsalir1ActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setText("Bucar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,9 +162,9 @@ public class materias extends javax.swing.JInternalFrame {
                     .addComponent(jano)
                     .addComponent(txtAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jestado1)
-                    .addComponent(checkEstado))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkEstado)
+                    .addComponent(jestado1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevo)
@@ -228,6 +233,10 @@ public class materias extends javax.swing.JInternalFrame {
             
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void jsalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jsalir1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jsalir1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
