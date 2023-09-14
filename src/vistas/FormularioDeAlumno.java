@@ -96,19 +96,24 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         checkEstado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         checkEstado.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         checkEstado.setIconTextGap(10);
-        checkEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkEstadoActionPerformed(evt);
-            }
-        });
 
         btnNuevo.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnGuardar.setText("Guardar");
@@ -179,7 +184,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,7 +211,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 465, Short.MAX_VALUE)
         );
 
         pack();
@@ -230,18 +235,6 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
        AlumnoData alum = new AlumnoData();
         
        alum.guardarAlumno(juan);
-       
-        
-        
-        
-      
-        
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -257,9 +250,33 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void checkEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkEstadoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkEstadoActionPerformed
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        try {
+            Alumno alumno = new Alumno();
+            alumno.setDni(Integer.parseInt(txtDni.getText()));
+            alumno.setApellido(txtApellido.getText());
+            alumno.setNombre(txtNombre.getText());
+            alumno.setFechaNacimiento(dateFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            alumno.setEstado(checkEstado.isSelected());
+            
+            AlumnoData alumnodata = new AlumnoData();
+            alumnodata.guardarAlumno(alumno);
+            
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Asi no es.");
+        }
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            int id = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el ID del alumno a eliminar.", "Eliminar alumno", JOptionPane.WARNING_MESSAGE));
+
+            AlumnoData alumnodata = new AlumnoData();
+            alumnodata.eliminarAlumno(id);
+        } catch (NumberFormatException ex) {
+            
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
