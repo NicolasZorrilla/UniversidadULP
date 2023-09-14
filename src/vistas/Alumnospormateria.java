@@ -5,6 +5,9 @@
  */
 package vistas;
 
+import accesoadatos.MateriaData;
+import entidades.Materia;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +24,7 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
     public Alumnospormateria() {
         initComponents();
         armarcabezera3();
+        llenarMaterias();
     }
 
     /**
@@ -32,19 +36,22 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBoxm = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableam = new javax.swing.JTable();
         jsalir4 = new javax.swing.JButton();
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel1.setText("Listado de Alumnos por Materia");
 
         jLabel2.setText("Seleccionar materia");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jTableam.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -60,6 +67,11 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTableam);
 
         jsalir4.setText("Salir");
+        jsalir4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jsalir4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -77,7 +89,7 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(77, 77, 77)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBoxm, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(58, 58, 58)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -93,7 +105,7 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxm, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
@@ -104,9 +116,14 @@ public class Alumnospormateria extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jsalir4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jsalir4ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jsalir4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBoxm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -123,7 +140,20 @@ private void armarcabezera3(){
     jTableam.setModel(modelo);
 }
     
-    
+  private void llenarMaterias(){
+      
+      MateriaData mat = new MateriaData();
+      
+     ArrayList<Materia> lmaterias = (ArrayList<Materia>) mat.listarMaterias();
+     
+     jComboBoxm.removeAll();
+     
+      for (int i = 0; i < lmaterias.size(); i++) {
+          
+          jComboBoxm.addItem(lmaterias.get(i).getNombre());
+      }
+      
+  }  
 
 
 }
