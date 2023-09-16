@@ -5,6 +5,12 @@
  */
 package vistas;
 
+import accesoadatos.AlumnoData;
+import accesoadatos.InscripcionData;
+import entidades.Alumno;
+import entidades.Materia;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,6 +28,7 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
     public manejodeinscrip() {
         initComponents();
         armarcabezera();
+        cargarComboAlumno();
     }
 
     /**
@@ -33,12 +40,13 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboAlumno = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        btnMateriaInscripta = new javax.swing.JRadioButton();
+        btnMateriaNoInscripta = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableinscripcion = new javax.swing.JTable();
         jinscripcion = new javax.swing.JButton();
@@ -50,14 +58,18 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Seleccione alumno");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboAlumno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAlumnoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         jLabel3.setText("listado de materias");
 
-        jRadioButton1.setText("Materias inscriptas");
+        btnMateriaInscripta.setText("Materias inscriptas");
 
-        jRadioButton2.setText("Materias no inscriptas");
+        btnMateriaNoInscripta.setText("Materias no inscriptas");
 
         jTableinscripcion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,12 +100,12 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(comboAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(btnMateriaInscripta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jRadioButton2)
+                        .addComponent(btnMateriaNoInscripta)
                         .addGap(57, 57, 57))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,14 +135,14 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(btnMateriaInscripta)
+                    .addComponent(btnMateriaNoInscripta))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
@@ -144,14 +156,41 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void comboAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAlumnoActionPerformed
+        limpiarFilas();
+        
+        buttonGroup1.add(btnMateriaInscripta);
+        buttonGroup1.add(btnMateriaNoInscripta);
+        
+        InscripcionData inscripciondata = new InscripcionData();
+        Alumno alumno = new Alumno();
+        List<Materia> materias = new ArrayList();
+        alumno = (Alumno)comboAlumno.getSelectedItem();
+        
+        if (btnMateriaInscripta.isSelected()) {
+            materias = inscripciondata.obtenerMateriasCursadas(alumno.getIdAlumno());
+        } else if (btnMateriaNoInscripta.isSelected()) {
+            materias = inscripciondata.obtenerMateriasNoCursadas(alumno.getIdAlumno());
+        }
+
+        for (Materia materia : materias) {
+            modelo.addRow(new Object[] {
+                materia.getIdMateria(),
+                materia.getNombre(),
+                materia.getAnio()
+            });
+        }
+    }//GEN-LAST:event_comboAlumnoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JRadioButton btnMateriaInscripta;
+    private javax.swing.JRadioButton btnMateriaNoInscripta;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<Alumno> comboAlumno;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableinscripcion;
     private javax.swing.JButton janular;
@@ -168,6 +207,16 @@ private void armarcabezera(){
     jTableinscripcion.setModel(modelo);
 }
     
+    private void limpiarFilas() {
+        for (int i = modelo.getRowCount() -1; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
 
-
+    private void cargarComboAlumno() {
+        AlumnoData alumnodata = new AlumnoData();
+        for (Alumno alumno : alumnodata.listarAlumnos()) {
+            comboAlumno.addItem(alumno);
+        }
+    }
 }
