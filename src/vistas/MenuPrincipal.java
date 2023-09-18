@@ -67,7 +67,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGap(0, 760, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Alunmo");
+        jMenu1.setText("Alumno");
 
         jMenuItem1.setText("Formulario de Alumno");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +124,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Salir");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
@@ -194,6 +199,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         escritorio.add(am);
         escritorio.moveToFront(am);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+       
+    }//GEN-LAST:event_jMenu5ActionPerformed
 
     /**
      * @param args the command line arguments

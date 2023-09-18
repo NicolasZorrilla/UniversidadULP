@@ -61,6 +61,11 @@ public class Cargadenotas extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTablenotas);
 
         jsalir3.setText("Salir");
+        jsalir3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jsalir3ActionPerformed(evt);
+            }
+        });
 
         jguardar3.setText("Guardar");
 
@@ -110,6 +115,10 @@ public class Cargadenotas extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jsalir3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jsalir3ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jsalir3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

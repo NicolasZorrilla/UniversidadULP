@@ -89,6 +89,11 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
         janular.setText("Anular Inscripcion");
 
         jsalir2.setText("Salir");
+        jsalir2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jsalir2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,6 +186,10 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
             });
         }
     }//GEN-LAST:event_comboAlumnoActionPerformed
+
+    private void jsalir2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jsalir2ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jsalir2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

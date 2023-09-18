@@ -227,6 +227,9 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
+        int ida= (int)(Math.random()*1000+1);
+        
+        
         int doc =Integer.parseInt(txtDni.getText());
         String ap = txtApellido.getText();
         String nom = txtNombre.getText();
@@ -237,7 +240,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         
         
 
-       Alumno juan = new Alumno(1,doc, ap, nom, fecha, es);
+       Alumno juan = new Alumno(ida,doc, ap, nom, fecha, es);
        
         
        AlumnoData alum = new AlumnoData();
