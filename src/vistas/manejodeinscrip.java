@@ -10,7 +10,9 @@ import accesoadatos.InscripcionData;
 import entidades.Alumno;
 import entidades.Materia;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,16 +21,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class manejodeinscrip extends javax.swing.JInternalFrame {
 
-    
     private DefaultTableModel modelo = new DefaultTableModel();
-    
-    
-    
-    
+
     public manejodeinscrip() {
         initComponents();
         armarcabezera();
         cargarComboAlumno();
+        grupoBotones();
     }
 
     /**
@@ -163,15 +162,13 @@ public class manejodeinscrip extends javax.swing.JInternalFrame {
 
     private void comboAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAlumnoActionPerformed
         limpiarFilas();
-        
-        buttonGroup1.add(btnMateriaInscripta);
-        buttonGroup1.add(btnMateriaNoInscripta);
-        
+
         InscripcionData inscripciondata = new InscripcionData();
-        Alumno alumno = new Alumno();
-        List<Materia> materias = new ArrayList();
-        alumno = (Alumno)comboAlumno.getSelectedItem();
-        
+
+        Alumno alumno = (Alumno)comboAlumno.getSelectedItem();
+
+        Set<Materia> materias = new HashSet();
+
         if (btnMateriaInscripta.isSelected()) {
             materias = inscripciondata.obtenerMateriasCursadas(alumno.getIdAlumno());
         } else if (btnMateriaNoInscripta.isSelected()) {
@@ -227,5 +224,10 @@ private void armarcabezera(){
         for (Alumno alumno : alumnodata.listarAlumnos()) {
             comboAlumno.addItem(alumno);
         }
+    }
+    
+    private void grupoBotones() {
+        buttonGroup1.add(btnMateriaInscripta);
+        buttonGroup1.add(btnMateriaNoInscripta);
     }
 }
