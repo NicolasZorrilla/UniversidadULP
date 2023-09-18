@@ -4,7 +4,9 @@ package accesoadatos;
 import entidades.*;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 public class InscripcionData {
@@ -90,8 +92,8 @@ public class InscripcionData {
     }
     
     // Este método recibe el id de un alumno.
-    public List<Materia> obtenerMateriasCursadas(int id) {
-        List<Materia> materias = new ArrayList();
+    public Set<Materia> obtenerMateriasCursadas(int id) {
+        Set<Materia> materias = new HashSet();
         try {
             String listar = "SELECT materia.idMateria, nombre, año "
                           + "FROM inscripcion JOIN materia "
@@ -118,16 +120,12 @@ public class InscripcionData {
         return materias;
     }
     
-    public List<Materia> obtenerMateriasNoCursadas(int id) {
-        List<Materia> materias = new ArrayList<>();
+    public Set<Materia> obtenerMateriasNoCursadas(int id) {
+        Set<Materia> materias = new HashSet<>();
         try {
-            String listar = "SELECT materia.idMateria, nombre, año "
-                          + "FROM inscripcion JOIN materia "
-                          + "ON (inscripcion.idMateria = materia.idMateria) "
-                          + "WHERE inscripcion.idAlumno = ?"; // Arreglar para que traiga las materia donde no esta inscripto
+            String listar = "SELECT idMateria, nombre, año FROM materia"; // Arreglar para que traiga las materia donde no esta inscripto
             
             PreparedStatement ps = conex.prepareStatement(listar);
-            ps.setInt(1, id);
             
             ResultSet rs = ps.executeQuery();
             
@@ -138,6 +136,8 @@ public class InscripcionData {
                 materia.setAnio(rs.getInt("año"));
                 materias.add(materia);
             }
+            
+            materias.removeAll(obtenerMateriasCursadas(id));
             
             ps.close();
         } catch (SQLException ex) {
