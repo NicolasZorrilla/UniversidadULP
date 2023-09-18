@@ -227,25 +227,37 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-        int ida= (int)(Math.random()*1000+1);
-        
-        
-        int doc =Integer.parseInt(txtDni.getText());
-        String ap = txtApellido.getText();
-        String nom = txtNombre.getText();
-        boolean es = Boolean.parseBoolean(checkEstado.getText());
-        java.util.Date f = dateFechaNacimiento.getDate();
-          
-        LocalDate fecha = f.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        
-        
-
-       Alumno juan = new Alumno(ida,doc, ap, nom, fecha, es);
-       
-        
-       AlumnoData alum = new AlumnoData();
-        
-       alum.guardarAlumno(juan);
+//        int ida= (int)(Math.random()*1000+1);
+//        
+//        
+//        int doc =Integer.parseInt(txtDni.getText());
+//        String ap = txtApellido.getText();
+//        String nom = txtNombre.getText();
+//        boolean es = Boolean.parseBoolean(checkEstado.getText());
+//        java.util.Date f = dateFechaNacimiento.getDate();
+//          
+//        LocalDate fecha = f.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+//        
+//        
+//
+//       Alumno juan = new Alumno(ida,doc, ap, nom, fecha, es);
+//       
+//        
+//       AlumnoData alum = new AlumnoData();
+//        
+//       alum.guardarAlumno(juan);
+        try {
+            Alumno alumno = new Alumno();
+            alumno.setDni(Integer.parseInt(txtDni.getText()));
+            alumno.setApellido(txtApellido.getText());
+            alumno.setNombre(txtNombre.getText());
+            alumno.setFechaNacimiento(dateFechaNacimiento.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+            alumno.setEstado(checkEstado.isSelected());
+            AlumnoData alumnodata = new AlumnoData();
+            alumnodata.modificarAlumno(alumno);
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Dato incorrecto, nose modifico el alumno ");
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
