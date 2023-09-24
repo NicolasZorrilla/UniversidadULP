@@ -82,7 +82,7 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
         btnBuscar.setBackground(new java.awt.Color(74, 112, 122));
         btnBuscar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/search.png")); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/search.png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.setBorder(null);
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -96,7 +96,7 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
         btnNuevo.setBackground(new java.awt.Color(74, 112, 122));
         btnNuevo.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevo.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/text-plus.png")); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/text-plus.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.setBorder(null);
         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -110,7 +110,7 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
         btnEliminar.setBackground(new java.awt.Color(74, 112, 122));
         btnEliminar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/trash.png")); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/trash.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setBorder(null);
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -124,7 +124,7 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
         btnGuardar.setBackground(new java.awt.Color(74, 112, 122));
         btnGuardar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/pencil-minus.png")); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/pencil-minus.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setBorder(null);
         btnGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -137,7 +137,7 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
         btnLimpiar.setBackground(new java.awt.Color(74, 112, 122));
         btnLimpiar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/clear-formatting.png")); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/clear-formatting.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(null);
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

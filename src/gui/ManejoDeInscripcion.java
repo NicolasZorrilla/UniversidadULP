@@ -106,13 +106,12 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
             }
         ));
         tableMateria.setGridColor(new java.awt.Color(74, 112, 122));
-        tableMateria.setShowGrid(true);
         jScrollPane1.setViewportView(tableMateria);
 
         btnInscribir.setBackground(new java.awt.Color(74, 112, 122));
         btnInscribir.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnInscribir.setForeground(new java.awt.Color(255, 255, 255));
-        btnInscribir.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/user-plus.png")); // NOI18N
+        btnInscribir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/user-plus.png"))); // NOI18N
         btnInscribir.setText("Inscribir");
         btnInscribir.setBorder(null);
         btnInscribir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -127,7 +126,7 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
         btnAnular.setBackground(new java.awt.Color(74, 112, 122));
         btnAnular.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnAnular.setForeground(new java.awt.Color(255, 255, 255));
-        btnAnular.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/user-cancel.png")); // NOI18N
+        btnAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/user-cancel.png"))); // NOI18N
         btnAnular.setText("Anular");
         btnAnular.setBorder(null);
         btnAnular.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -141,7 +140,7 @@ public class ManejoDeInscripcion extends javax.swing.JInternalFrame {
         btnSalir.setBackground(new java.awt.Color(74, 112, 122));
         btnSalir.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/x.png")); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/x.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

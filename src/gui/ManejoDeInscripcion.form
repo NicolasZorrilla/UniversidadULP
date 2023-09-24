@@ -220,7 +220,6 @@
                 <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7a" green="70" red="4a" type="rgb"/>
                 </Property>
-                <Property name="showGrid" type="boolean" value="true"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -237,7 +236,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/nicolas/NetBeansProjects/universidadEjemplo/img/user-plus.png"/>
+              <Image iconType="3" name="/gui/img/user-plus.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Inscribir"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -269,7 +268,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/nicolas/NetBeansProjects/universidadEjemplo/img/user-cancel.png"/>
+              <Image iconType="3" name="/gui/img/user-cancel.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Anular"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -298,7 +297,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/home/nicolas/NetBeansProjects/universidadEjemplo/img/x.png"/>
+              <Image iconType="3" name="/gui/img/x.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Salir"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">

@@ -87,7 +87,7 @@ public class ManipulacionDeNota extends javax.swing.JInternalFrame {
         btnModificar.setBackground(new java.awt.Color(74, 112, 122));
         btnModificar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnModificar.setForeground(new java.awt.Color(255, 255, 255));
-        btnModificar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/pencil-minus.png")); // NOI18N
+        btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/pencil-minus.png"))); // NOI18N
         btnModificar.setText("Modificar nota");
         btnModificar.setBorder(null);
         btnModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

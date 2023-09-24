@@ -88,7 +88,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         btnBuscarDni.setBackground(new java.awt.Color(74, 112, 122));
         btnBuscarDni.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnBuscarDni.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarDni.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/search.png")); // NOI18N
+        btnBuscarDni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/search.png"))); // NOI18N
         btnBuscarDni.setText("Buscar");
         btnBuscarDni.setToolTipText("Buscar alumno por DNI");
         btnBuscarDni.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -115,7 +115,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         btnNuevo.setBackground(new java.awt.Color(74, 112, 122));
         btnNuevo.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnNuevo.setForeground(new java.awt.Color(255, 255, 255));
-        btnNuevo.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/user-plus.png")); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/user-plus.png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -129,7 +129,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         btnEliminar.setBackground(new java.awt.Color(74, 112, 122));
         btnEliminar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEliminar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/trash.png")); // NOI18N
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/trash.png"))); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -143,7 +143,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         btnGuardar.setBackground(new java.awt.Color(74, 112, 122));
         btnGuardar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnGuardar.setForeground(new java.awt.Color(255, 255, 255));
-        btnGuardar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/user-edit.png")); // NOI18N
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/user-edit.png"))); // NOI18N
         btnGuardar.setText("Guardar");
         btnGuardar.setToolTipText("");
         btnGuardar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -158,7 +158,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         btnLimpiar.setBackground(new java.awt.Color(74, 112, 122));
         btnLimpiar.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
-        btnLimpiar.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/clear-formatting.png")); // NOI18N
+        btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/clear-formatting.png"))); // NOI18N
         btnLimpiar.setText("Limpiar");
         btnLimpiar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -177,7 +177,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         btnBuscarId.setBackground(new java.awt.Color(74, 112, 122));
         btnBuscarId.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         btnBuscarId.setForeground(new java.awt.Color(255, 255, 255));
-        btnBuscarId.setIcon(new javax.swing.ImageIcon("/home/nicolas/NetBeansProjects/universidadEjemplo/img/search.png")); // NOI18N
+        btnBuscarId.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/search.png"))); // NOI18N
         btnBuscarId.setText("Buscar");
         btnBuscarId.setToolTipText("Buscar alumno por ID");
         btnBuscarId.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
@@ -283,7 +283,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 369, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
         );
 
         pack();
