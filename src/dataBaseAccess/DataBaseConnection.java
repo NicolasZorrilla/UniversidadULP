@@ -1,29 +1,29 @@
 
-package accesoadatos;
+package dataBaseAccess;
 
 import java.sql.*;
 import javax.swing.JOptionPane;
 
-public class Conexion {
+public class DataBaseConnection {
     private static final String URL = "jdbc:mariadb://localhost/";
     private static final String DB = "UniversidadULP24";
-    private static final String USUARIO = "root";
+    private static final String USERNAME = "root";
     private static final String PASSWORD = "";
-    private static Connection conexion;
+    private static Connection connection;
     
-    private Conexion() {} // Constructor vacio.
+    private DataBaseConnection() {} // Constructor vacio.
     
-    public static Connection getConexion() {
-        if (conexion == null) {
+    public static Connection getConnection() {
+        if (connection == null) {
             try {
                 Class.forName("org.mariadb.jdbc.Driver");
-                conexion = DriverManager.getConnection(URL + DB, USUARIO, PASSWORD);
+                connection = DriverManager.getConnection(URL + DB, USERNAME, PASSWORD);
             } catch (ClassNotFoundException ex) {
                 JOptionPane.showMessageDialog(null, "El driver de conexión no fue encontrado. " + ex.getMessage());
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "La conexión con la base de datos ha fallado. " + ex.getMessage());
             }
         }
-        return conexion;
+        return connection;
     }
 }

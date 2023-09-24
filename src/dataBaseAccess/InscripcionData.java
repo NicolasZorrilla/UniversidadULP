@@ -1,7 +1,7 @@
 
-package accesoadatos;
+package dataBaseAccess;
 
-import entidades.*;
+import entity.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -15,21 +15,21 @@ public class InscripcionData {
     private MateriaData matData;
     
     public InscripcionData() {
-        this.conex = Conexion.getConexion();
+        this.conex = DataBaseConnection.getConnection();
     }
     
     public void guardarInscripcion(Inscripcion insc) {
-        String sql = "INSERT INTO inscripcion (alumno, materia, nota) "
-                    + "VALUES (?, ?, ?)";
-
         try {
+            String sql = "INSERT INTO inscripcion (nota, idAlumno, idMateria) "
+                    + "VALUES (?, ?, ?)";
+            
             PreparedStatement ps = conex.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, insc.getNota());
+            ps.setInt(2, insc.getAlumno().getIdAlumno());
+            ps.setInt(3, insc.getMateria().getIdMateria());
+            ps.executeUpdate();
 
-            ps.setObject(1, insc.getAlumno());
-            ps.setObject(2, insc.getMateria());
-            ps.setInt(3, insc.getNota());
-
-            ResultSet rs = ps.getGeneratedKeys();//tabla de inscripcion
+            ResultSet rs = ps.getGeneratedKeys(); //tabla de inscripcion
 
             if (rs.next()) {
                 insc.setIdInscripcion(rs.getInt(1));
@@ -67,10 +67,10 @@ public class InscripcionData {
     public List<Inscripcion> obtenerInscripcionesPorAlumno(int id) {
         List<Inscripcion> inscripciones = new ArrayList();
         try {
-            String listar = "SELECT inscripcion.idInscripcion, nota, " // Se recupera de la tabla inscripción
-                          + "FROM inscripcion JOIN alumno "
-                          + "ON (inscripcion.idAlumno = alumno.idAlumno) "
-                          + "WHERE inscripcion.idAlumno = ?";
+            String listar = "SELECT materia.idMateria, materia.nombre, nota "
+                    + "FROM inscripcion JOIN materia "
+                    + "ON (materia.idMateria = inscripcion.idMateria) "
+                    + "WHERE idAlumno = ?";
             
             PreparedStatement ps = conex.prepareStatement(listar);
             ps.setInt(1, id);
@@ -79,7 +79,10 @@ public class InscripcionData {
             
             while (rs.next()) {
                 Inscripcion inscripcion = new Inscripcion();
-                inscripcion.setIdInscripcion(rs.getInt("idInscripcion"));
+                Materia materia = new Materia();
+                materia.setNombre(rs.getString("materia.nombre"));
+                materia.setIdMateria(rs.getInt("materia.idMateria"));
+                inscripcion.setMateria(materia);
                 inscripcion.setNota(rs.getInt("nota"));
                 inscripciones.add(inscripcion);
             }
@@ -98,7 +101,7 @@ public class InscripcionData {
             String listar = "SELECT materia.idMateria, nombre, año "
                           + "FROM inscripcion JOIN materia "
                           + "ON (inscripcion.idMateria = materia.idMateria) "
-                          + "WHERE inscripcion.idAlumno = ?";
+                          + "WHERE inscripcion.idAlumno = ? AND materia.estado = 1";
             
             PreparedStatement ps = conex.prepareStatement(listar);
             ps.setInt(1, id);
@@ -123,7 +126,7 @@ public class InscripcionData {
     public Set<Materia> obtenerMateriasNoCursadas(int id) {
         Set<Materia> materias = new HashSet<>();
         try {
-            String listar = "SELECT idMateria, nombre, año FROM materia"; // Arreglar para que traiga las materia donde no esta inscripto
+            String listar = "SELECT idMateria, nombre, año FROM materia WHERE estado = 1";
             
             PreparedStatement ps = conex.prepareStatement(listar);
             
@@ -192,17 +195,21 @@ public class InscripcionData {
     public List<Alumno> obtenerAlumnosPorMateria(int idMateria) {
         List<Alumno> alumnos = new ArrayList();
         try {
-            String obtencion = "SELECT alumno.idAlumno, dni, apellido, nombre FROM alumno "
+            String obtencion = "SELECT alumno.idAlumno, dni, apellido, nombre, fechaNacimiento FROM alumno "
                              + "JOIN inscripcion ON (inscripcion.idAlumno = alumno.idAlumno) "
-                             + "WHERE inscripcion.idMateria = ?";
+                             + "WHERE inscripcion.idMateria = ? AND alumno.estado = 1";
             PreparedStatement ps = conex.prepareStatement(obtencion);
             ps.setInt(1, idMateria);
+            
             ResultSet rs = ps.executeQuery();
+            
             while (rs.next()) {
                 Alumno alumno = new Alumno();
+                alumno.setIdAlumno(rs.getInt("idAlumno"));
                 alumno.setDni(rs.getInt("dni"));
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
+                alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
                 alumnos.add(alumno);
             }
             

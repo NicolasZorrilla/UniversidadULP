@@ -1,5 +1,5 @@
 
-package entidades;
+package entity;
 
 public class Inscripcion {
     

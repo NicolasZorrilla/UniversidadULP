@@ -1,5 +1,5 @@
 
-package entidades;
+package entity;
 
 import java.util.Objects;
 
@@ -62,14 +62,14 @@ public class Materia {
 
     @Override
     public String toString() {
-        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", estado=" + estado + '}';
+        return "[" + idMateria + "] " + nombre + ", " + anio;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + this.idMateria;
-        hash = 59 * hash + Objects.hashCode(this.nombre);
+        int hash = 3;
+        hash = 37 * hash + this.idMateria;
+        hash = 37 * hash + Objects.hashCode(this.nombre);
         return hash;
     }
 
@@ -85,14 +85,7 @@ public class Materia {
             return false;
         }
         final Materia other = (Materia) obj;
-        if (this.idMateria != other.idMateria) {
-            return false;
-        }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        return true;
+        return this.idMateria == other.idMateria;
     }
-    
-    
+
 }

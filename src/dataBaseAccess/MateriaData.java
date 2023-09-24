@@ -1,7 +1,7 @@
 
-package accesoadatos;
+package dataBaseAccess;
 
-import entidades.Materia;
+import entity.Materia;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ public class MateriaData {
         el atributo conex de tipo Connection.
     */
     public MateriaData() {
-        this.conex = Conexion.getConexion();
+        this.conex = DataBaseConnection.getConnection();
     }
     
     public void guardarMateria(Materia materia) {
@@ -33,7 +33,7 @@ public class MateriaData {
             ResultSet rs = ps.getGeneratedKeys();
             
             if (rs.next()) {
-                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setIdMateria(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "¡Nueva materia añadida con exito!");
             }
             
@@ -129,7 +129,7 @@ public class MateriaData {
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
                 materia.setEstado(rs.getBoolean("estado"));
-                materias.add(materia); // Se agregar la materia creada arriba al arrayList.
+                materias.add(materia); // Se agregar la materia creada arriba al arraylist.
             }
             
             ps.close();

@@ -1,5 +1,5 @@
 
-package entidades;
+package entity;
 
 import java.time.LocalDate;
 
@@ -25,8 +25,7 @@ public class Alumno {
     }
     
     // Constructor sin el atributo idAlumno.
-    public Alumno(int dni, String apellido, String nombre, LocalDate fechaNacimiento, boolean estado) {
-        this.dni = dni;
+    public Alumno(String apellido, String nombre, LocalDate fechaNacimiento, boolean estado) {
         this.apellido = apellido;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
@@ -84,7 +83,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", estado=" + estado + '}';
+        return "[" + idAlumno + "] " + dni + ", " + apellido + ", " + nombre + ", " + fechaNacimiento;
     }
 
 }

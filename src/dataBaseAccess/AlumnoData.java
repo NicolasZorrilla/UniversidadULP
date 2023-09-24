@@ -1,7 +1,7 @@
 
-package accesoadatos;
+package dataBaseAccess;
 
-import entidades.Alumno;
+import entity.Alumno;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,26 +17,25 @@ public class AlumnoData {
         el atributo conex de tipo Connection.
     */
     public AlumnoData() {
-        this.conex = Conexion.getConexion();
+        this.conex = DataBaseConnection.getConnection();
     }
     
+    // Este metodo guarda un NUEVO alumno.
     public void guardarAlumno(Alumno alumno) {
         try {
             String nuevoAlumno = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado) "
                                 + "VALUES (?, ?, ?, ?, ?)";
             
-            PreparedStatement ps = conex.prepareStatement(nuevoAlumno, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = conex.prepareStatement(nuevoAlumno);
             ps.setInt(1, alumno.getDni());
             ps.setString(2, alumno.getApellido());
             ps.setString(3, alumno.getNombre());
             ps.setDate(4, Date.valueOf(alumno.getFechaNacimiento()));
             ps.setBoolean(5, alumno.isEstado());
-            ps.executeUpdate();
             
-            ResultSet rs = ps.getGeneratedKeys();
-            
-            if (rs.next()) {
-                alumno.setIdAlumno(rs.getInt(1));
+            int resultado = ps.executeUpdate();
+
+            if (resultado == 1) {
                 JOptionPane.showMessageDialog(null, "¡Nuevo alumno añadido con exito!");
             }
             
@@ -50,7 +49,7 @@ public class AlumnoData {
         Alumno alumno = null;
         try {
             String busqueda = "SELECT dni, apellido, nombre, fechaNacimiento, estado "
-                            + "FROM alumno WHERE id = ? AND estado = 1";
+                            + "FROM alumno WHERE idAlumno = ? AND estado = 1";
             
             PreparedStatement ps = conex.prepareStatement(busqueda);
             ps.setInt(1, id);
@@ -94,7 +93,7 @@ public class AlumnoData {
                 alumno.setApellido(rs.getString("apellido"));
                 alumno.setNombre(rs.getString("nombre"));
                 alumno.setFechaNacimiento(rs.getDate("fechaNacimiento").toLocalDate());
-                alumno.setEstado(true);
+                alumno.setEstado(rs.getBoolean("estado"));
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el alumno.");
             }
@@ -134,7 +133,7 @@ public class AlumnoData {
     
     public void modificarAlumno(Alumno alumno) {
         try {
-            String modificacion = "UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ?, estado = ?"
+            String modificacion = "UPDATE alumno SET dni = ?, apellido = ?, nombre = ?, fechaNacimiento = ?, estado = ? "
                                 + "WHERE idAlumno = ?";
             
             PreparedStatement ps = conex.prepareStatement(modificacion);
@@ -159,9 +158,10 @@ public class AlumnoData {
         }
     }
     
+    // Éste método no eliminar de la BD al alumno, sólo cambia su estado a 0
     public void eliminarAlumno(int id) {
         try {
-            String modificacion = "DELETE FROM alumno WHERE idAlumno = ?";
+            String modificacion = "UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
             
             PreparedStatement ps = conex.prepareStatement(modificacion);
             ps.setInt(1, id);
