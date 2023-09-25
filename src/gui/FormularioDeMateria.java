@@ -61,6 +61,7 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Año");
 
+        txtId.setEditable(false);
         txtId.setFont(new java.awt.Font("Liberation Sans", 0, 14)); // NOI18N
         txtId.setBorder(null);
         txtId.setPreferredSize(new java.awt.Dimension(180, 21));
@@ -302,17 +303,19 @@ public class FormularioDeMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        MateriaData materiadata = new MateriaData();
         try {
-            MateriaData materiadata = new MateriaData();
-            Materia materia = materiadata.buscarMateria(Integer.parseInt(txtId.getText()));
+            int id = Integer.parseInt(JOptionPane.showInputDialog(this, "Ingrese el código para buscar...", "Buscar alumno por código", JOptionPane.QUESTION_MESSAGE));
+            Materia materia = materiadata.buscarMateria(id);
             
             if (materia != null) {
+                txtId.setText(materia.getIdMateria() + "");
                 txtNombre.setText(materia.getNombre());
                 txtAnio.setValue((int)materia.getAnio());
                 checkEstado.setSelected(materia.isEstado());
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Código invalido.");
+            
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 

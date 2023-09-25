@@ -398,7 +398,7 @@ public class FormularioDeAlumno extends javax.swing.JInternalFrame {
                 checkEstado.setSelected(alumno.isEstado());
             }
         } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Código invalido.");
+            
         }
     }//GEN-LAST:event_btnBuscarIdActionPerformed
 
