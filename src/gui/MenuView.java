@@ -1,6 +1,8 @@
 
 package gui;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author nicolas
@@ -24,6 +26,7 @@ public class MenuView extends javax.swing.JFrame {
     private void initComponents() {
 
         desktop = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menuAlumno = new javax.swing.JMenu();
         menuFormDeAlumn = new javax.swing.JMenuItem();
@@ -38,20 +41,26 @@ public class MenuView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Universidad ULP");
+        setIconImage(new ImageIcon(getClass().getResource("/gui/img/icon-ulp.png")).getImage());
         setPreferredSize(new java.awt.Dimension(800, 600));
         setType(java.awt.Window.Type.UTILITY);
 
         desktop.setBackground(new java.awt.Color(74, 112, 122));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/img/logo-ulp.png"))); // NOI18N
+
+        desktop.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout desktopLayout = new javax.swing.GroupLayout(desktop);
         desktop.setLayout(desktopLayout);
         desktopLayout.setHorizontalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
         );
         desktopLayout.setVerticalGroup(
             desktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 477, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
         );
 
         menuAlumno.setText("Alumno");
@@ -150,6 +159,7 @@ public class MenuView extends javax.swing.JFrame {
         FormularioDeMateria formdemate = new FormularioDeMateria();
         formdemate.setVisible(true);
         desktop.add(formdemate);
+        desktop.add(jLabel1);
     }//GEN-LAST:event_menuFormDeMateriaActionPerformed
 
     private void menuManejDeInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuManejDeInscActionPerformed
@@ -158,6 +168,7 @@ public class MenuView extends javax.swing.JFrame {
         ManejoDeInscripcion manedeinsc = new ManejoDeInscripcion();
         manedeinsc.setVisible(true);
         desktop.add(manedeinsc);
+        desktop.add(jLabel1);
     }//GEN-LAST:event_menuManejDeInscActionPerformed
 
     private void menuFormDeAlumnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFormDeAlumnActionPerformed
@@ -166,6 +177,7 @@ public class MenuView extends javax.swing.JFrame {
         FormularioDeAlumno formdealum = new FormularioDeAlumno();
         formdealum.setVisible(true);
         desktop.add(formdealum);
+        desktop.add(jLabel1);
     }//GEN-LAST:event_menuFormDeAlumnActionPerformed
 
     private void menuManipDeNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuManipDeNotaActionPerformed
@@ -174,6 +186,7 @@ public class MenuView extends javax.swing.JFrame {
         ManipulacionDeNota manidenota = new ManipulacionDeNota();
         manidenota.setVisible(true);
         desktop.add(manidenota);
+        desktop.add(jLabel1);
     }//GEN-LAST:event_menuManipDeNotaActionPerformed
 
     private void menuAlumnPorMaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAlumnPorMaterActionPerformed
@@ -182,6 +195,7 @@ public class MenuView extends javax.swing.JFrame {
         AlumnoPorMateria alumpormate = new AlumnoPorMateria();
         alumpormate.setVisible(true);
         desktop.add(alumpormate);
+        desktop.add(jLabel1);
     }//GEN-LAST:event_menuAlumnPorMaterActionPerformed
 
     private void menuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuSalirMouseClicked
@@ -190,6 +204,7 @@ public class MenuView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu menuAdministracion;
     private javax.swing.JMenuItem menuAlumnPorMater;
